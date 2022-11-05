@@ -1,0 +1,32 @@
+modules:
+  compass:dataProvider:
+    - key: atlanssianapp-data-provider
+      function: data-provider-fn
+      domains:
+        - test.example.com
+      linkTypes:
+        - chat-channel
+        - document
+        - repository
+        - dashboard
+        - on-call
+        - project
+        - other-link
+      callback:
+        function: callback-fn
+  function:
+    - key: data-provider-fn
+      handler: index.dataProvider
+    - key: callback-fn
+      handler: index.dataProviderCallback
+permissions:
+  # For more info on scopes https://developer.atlassian.com/platform/forge/manifest-reference/permissions/
+  scopes:
+    - read:component:compass
+    - write:component:compass
+    - read:event:compass
+    - write:event:compass
+    - read:metric:compass
+    - write:metric:compass
+app:
+  id: ari:cloud:ecosystem::app/f362abc7-563a-454d-8d61-43bf82cf5d6a
